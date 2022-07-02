@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <h1 className="text-6xl text-left m-7">TODO</h1>
 
-      <div className="flex justify-center">
+      <div>
         <CreateTodo />
       </div>
     </>
