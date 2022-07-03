@@ -3,7 +3,7 @@ import { useState } from 'react';
 import arrow from '../assets/Arrow.svg';
 
 export default function CreateTodo() {
-  let [inputValue, setInputValue] = useState(null);
+  let [inputValue, setInputValue] = useState('');
   let [error, setError] = useState(false);
 
   function setValue(event) {
@@ -21,7 +21,6 @@ export default function CreateTodo() {
     }
     setInputValue('');
     //todo: save task in the localstorage
-    console.log(inputValue);
   }
 
   return (
