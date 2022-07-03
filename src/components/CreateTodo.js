@@ -20,7 +20,13 @@ export default function CreateTodo() {
       return;
     }
     setInputValue('');
-    //todo: save task in the localstorage
+    let todoItems = localStorage.getItem('items');
+
+    if (todoItems) {
+      localStorage.setItem('items', `${todoItems}, ${inputValue}`);
+    } else {
+      localStorage.setItem('items', `${inputValue}`);
+    }
   }
 
   return (
