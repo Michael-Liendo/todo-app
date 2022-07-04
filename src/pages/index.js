@@ -1,4 +1,5 @@
 import CreateTodo from '../components/CreateTodo';
+import ListTodo from '../components/ListTodo';
 
 export default function Home() {
   return (
@@ -7,6 +8,9 @@ export default function Home() {
 
       <div>
         <CreateTodo />
+      </div>
+      <div>
+        <ListTodo />
       </div>
     </>
   );
