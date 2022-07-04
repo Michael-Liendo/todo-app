@@ -20,12 +20,19 @@ export default function CreateTodo() {
       return;
     }
     setInputValue('');
-    let todoItems = localStorage.getItem('items');
+    let todoItems = JSON.parse(localStorage.getItem('items'));
+
+    const todo = {
+      name: inputValue,
+      completed: false,
+    };
 
     if (todoItems) {
-      localStorage.setItem('items', `${todoItems}, ${inputValue}`);
+      let arrayOfTodos = [...todoItems, todo];
+      localStorage.setItem('items', JSON.stringify(arrayOfTodos));
     } else {
-      localStorage.setItem('items', `${inputValue}`);
+      let arrayOfTodos = [todo];
+      localStorage.setItem('items', JSON.stringify(arrayOfTodos));
     }
   }
 
