@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import arrow from '../assets/Arrow.svg';
 
-export default function CreateTodo() {
+export default function CreateTodo({ setToDos }) {
   let [inputValue, setInputValue] = useState('');
   let [error, setError] = useState(false);
 
@@ -30,9 +30,11 @@ export default function CreateTodo() {
     if (todoItems) {
       let arrayOfTodos = [...todoItems, todo];
       localStorage.setItem('items', JSON.stringify(arrayOfTodos));
+      setToDos(arrayOfTodos);
     } else {
       let arrayOfTodos = [todo];
       localStorage.setItem('items', JSON.stringify(arrayOfTodos));
+      setToDos(arrayOfTodos);
     }
   }
 
