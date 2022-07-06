@@ -19,6 +19,13 @@ export default function CreateTodo({ setToDos }) {
       }, 1500);
       return;
     }
+    if (inputValue.length >= 50) {
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 2500);
+      return;
+    }
     setInputValue('');
     let todoItems = JSON.parse(localStorage.getItem('items'));
 
@@ -41,7 +48,9 @@ export default function CreateTodo({ setToDos }) {
   return (
     <>
       {error ? (
-        <p className="text-red-700 text-center">Ey, put a task!</p>
+        <p className="text-red-700 text-center">
+          Hey! You have not put a task or it has more than 50 characters
+        </p>
       ) : (
         <p className="text-transparent">.</p>
       )}
