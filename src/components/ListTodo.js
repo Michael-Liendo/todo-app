@@ -1,20 +1,53 @@
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { useEffect } from 'react';
+import Check from '../assets/Check.svg';
 
-export default function ListTodo() {
-  let [toDos, setToDos] = useState([]);
-
+export default function ListTodo({ toDos, setToDos }) {
   useEffect(() => {
-    let items = JSON.parse(localStorage.getItem('items'));
+    let items = JSON.parse(localStorage.getItem('items')) || [];
     setToDos(items);
-  }, []);
+  }, [setToDos]);
+
+  function changeStatusTask(index) {
+    let items = JSON.parse(localStorage.getItem('items'));
+    items[index].completed = !items[index].completed;
+    localStorage.setItem('items', JSON.stringify(items));
+    setToDos(items);
+  }
 
   return (
-    <>
-      <h2>ToDos</h2>
-      {/* TODO: make a figma design */}
-      {toDos.map((item) => {
-        return <p key={item.name}>{item.name}</p>;
-      })}
-    </>
+    <div className="flex justify-center mt-16">
+      <div className="bg-[#25273C] w-1/2 p-4 rounded-md">
+        {toDos.map((todo, index) => {
+          return (
+            <div key={index}>
+              {todo.completed ? (
+                <div className="flex my-4">
+                  <button
+                    onClick={() => changeStatusTask(index)}
+                    className="mr-2.5 bg-gradient-to-r from-[#E600FA] rounded-full px-1 pt-1"
+                  >
+                    <Image src={Check} alt="Arrow curve" />
+                  </button>
+                  <p className="ml-2.5">
+                    <s>{todo.name}</s>
+                  </p>
+                </div>
+              ) : (
+                <div className="flex my-4">
+                  <button
+                    onClick={() => changeStatusTask(index)}
+                    className="mr-2.5 bg-slate-500 rounded-full px-1 pt-1"
+                  >
+                    <Image src={Check} alt="Arrow curve" />
+                  </button>
+                  <p className="ml-2.5">{todo.name}</p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }
