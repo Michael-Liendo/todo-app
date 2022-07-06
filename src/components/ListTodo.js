@@ -18,7 +18,7 @@ export default function ListTodo({ toDos, setToDos }) {
 
   return (
     <div className="flex justify-center mt-16">
-      <div className="bg-[#25273C] w-1/2 p-4 rounded-md">
+      <div className="bg-[#25273C] w-full p-4 rounded-md sm:w-1/2">
         {toDos.map((todo, index) => {
           return (
             <div key={index}>
