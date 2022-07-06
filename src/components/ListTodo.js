@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
 import Check from '../assets/Check.svg';
+import Line from '../assets/Line.svg';
 
 export default function ListTodo({ toDos, setToDos }) {
   useEffect(() => {
@@ -37,9 +38,9 @@ export default function ListTodo({ toDos, setToDos }) {
                 <div className="flex my-4">
                   <button
                     onClick={() => changeStatusTask(index)}
-                    className="mr-2.5 bg-slate-500 rounded-full px-1 pt-1"
+                    className="mr-2.5 grid place-items-center bg-slate-500 rounded-full px-1 py-3"
                   >
-                    <Image src={Check} alt="Arrow curve" />
+                    <Image src={Line} width={18} alt="Arrow curve" />
                   </button>
                   <p className="ml-2.5">{todo.name}</p>
                 </div>
