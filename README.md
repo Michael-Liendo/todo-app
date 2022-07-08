@@ -1,6 +1,6 @@
 # To-Do App
 
-A app for view pictures of the NASA
+The classic todo app with a few twists!
 
 ## Live Page
 
