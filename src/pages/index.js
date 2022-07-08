@@ -23,7 +23,7 @@ export default function Home() {
           content="todo, to-do, todo app, to-do app, michael liendo to-do, todos, to-dos"
         />
 
-        <meta rel="canonical" href="https://michaelliendo.com/" />
+        <meta rel="canonical" href="https://to-do.michaelliendo.com/" />
 
         <meta name="robots" content="follow" />
         <meta name="author" content="Michael Liendo" />
