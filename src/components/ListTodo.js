@@ -24,6 +24,11 @@ export default function ListTodo({ toDos, setToDos }) {
     setToDos(items);
   }
 
+  function deleteAllTodos() {
+    localStorage.removeItem('items');
+    setToDos([]);
+  }
+
   return (
     <div className="flex justify-center mt-16">
       <div className="bg-[#25273C] w-full p-4 rounded-md sm:w-1/2">
@@ -76,6 +81,13 @@ export default function ListTodo({ toDos, setToDos }) {
             </div>
           );
         })}
+        <hr />
+        <div className="flex justify-between my-1.5">
+          <p>You have {toDos.length} to-dos</p>
+          <p className="cursor-pointer" onClick={deleteAllTodos}>
+            Clear All ToDos
+          </p>
+        </div>
       </div>
     </div>
   );
